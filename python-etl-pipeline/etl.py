@@ -27,7 +27,7 @@ def load(tbl,df):
         engine = create_engine(f'postgresql://{uid}:{pwd}@{server}:5435/destination-db')
         print(f'importing rows {rows_imported} to {rows_imported + len(df)} for table {tbl}')
         # save df to postgres
-        df.to_sql(f'stg_{tbl}', engine, if_exists='replace', index=False)
+        df.to_sql(f'{tbl}', engine, if_exists='replace', index=False)
         rows_imported += len(df)      
         print("data imported successful")
     except Exception as e:
