@@ -6,8 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="common" />
         <module name="View-Producer-App" />
+        <module name="database" />
+        <module name="API" />
+        <module name="common" />
         <module name="Stream-Reader-App" />
       </profile>
     </annotationProcessing>

@@ -13,7 +13,16 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class ProductViewEvent {
-    String userId;
-    String productId;
+    private String userId;
+    private String productId;
     private Date produceTime;
+
+    @Override
+    public String toString() {
+        return "ProductViewEvent{" +
+                "userId='" + userId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", produceTime=" + produceTime +
+                '}';
+    }
 }
