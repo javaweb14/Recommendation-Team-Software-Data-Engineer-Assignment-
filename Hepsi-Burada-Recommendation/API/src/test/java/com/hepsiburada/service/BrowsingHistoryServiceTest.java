@@ -79,6 +79,11 @@ public class BrowsingHistoryServiceTest {
         browsingHistory9.setProductId("product-10");
         browsingHistory9.setProduceTime(new Date());
 
+        BrowsingHistory browsingHistory10 = new BrowsingHistory();
+        browsingHistory10.setUserId("user-74");
+        browsingHistory10.setProductId("product-11");
+        browsingHistory10.setProduceTime(new Date());
+
         List<BrowsingHistory> browsingHistories = new ArrayList<>();
 
         browsingHistories.add(browsingHistory);
@@ -91,6 +96,7 @@ public class BrowsingHistoryServiceTest {
         browsingHistories.add(browsingHistory7);
         browsingHistories.add(browsingHistory8);
         browsingHistories.add(browsingHistory9);
+        browsingHistories.add(browsingHistory10);
 
         Mockito.when(browsingHistoryRepository.findByUserId("user-74")).thenReturn(browsingHistories);
 
