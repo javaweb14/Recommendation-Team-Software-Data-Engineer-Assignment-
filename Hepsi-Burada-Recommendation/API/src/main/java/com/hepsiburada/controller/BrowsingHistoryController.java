@@ -33,7 +33,7 @@ public class BrowsingHistoryController {
     }
 
     @DeleteMapping("/browsingHistory")
-    public ResponseEntity<DeleteBrowsingHistoryRequestDto> deleteEmployee(@RequestBody DeleteBrowsingHistoryRequestDto deleteBrowsingHistoryRequestDto) {
+    public ResponseEntity<DeleteBrowsingHistoryRequestDto> deleteBrowsingHistory(@RequestBody DeleteBrowsingHistoryRequestDto deleteBrowsingHistoryRequestDto) {
        return browsingHistoryService.deleteProductByUserId(deleteBrowsingHistoryRequestDto.getUserId(), deleteBrowsingHistoryRequestDto.getProductId());
 
     }
