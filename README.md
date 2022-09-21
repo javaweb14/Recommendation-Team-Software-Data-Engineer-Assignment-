@@ -29,4 +29,4 @@ when run API project request can be made via below link
 
 http://localhost:8087/swagger-ui.html#/browsing-history-controller
 
-![image](https://user-images.githubusercontent.com/35763530/191607687-f97e87c4-8705-4224-8e8e-9525e48109fc.png)
+![image](https://user-images.githubusercontent.com/35763530/191609842-eb41e1fe-f317-4b68-a113-e600ed50cd74.png)
