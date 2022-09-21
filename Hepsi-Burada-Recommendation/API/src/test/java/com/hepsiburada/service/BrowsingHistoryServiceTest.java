@@ -3,17 +3,18 @@ package com.hepsiburada.service;
 import com.hepsiburada.database.model.BrowsingHistory;
 import com.hepsiburada.database.repository.BrowsingHistoryRepository;
 import com.hepsiburada.service.impl.BrowsingHistoryServiceImpl;
-import lombok.SneakyThrows;
-import org.junit.Before;
+import org.apache.kafka.common.errors.ResourceNotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 
@@ -159,8 +160,27 @@ public class BrowsingHistoryServiceTest {
         Mockito.when(browsingHistoryRepository.findByUserId("user-74")).thenReturn(browsingHistories);
 
 
-        assertEquals(browsingHistory1.getProductId(), browsingHistoryService.getLastTenProductsViewedByUserId("user-74").get().getProducts().get(0));
+        assertEquals(browsingHistory3.getProductId(), browsingHistoryService.getLastTenProductsViewedByUserId("user-74").get().getProducts().get(0));
 
+    }
+
+    @Test
+    public void whenGiveValidUserIdAndProductId_deleteProductByUserId_returnSuccess() {
+        BrowsingHistory browsingHistory = new BrowsingHistory();
+        browsingHistory.setUserId("user-74");
+        browsingHistory.setProductId("product-1");
+        browsingHistory.setProduceTime(new Date());
+
+        Mockito.when(browsingHistoryRepository.findByUserIdAndProductId("user-74","product-1")).thenReturn(Optional.of(browsingHistory));
+
+
+         browsingHistoryService.deleteProductByUserId("user-74","product-1");
+
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void whenGiveNotValidUserIdAndProductId_deleteProductByUserId_returnResourceNotFoundException() {
+        browsingHistoryService.deleteProductByUserId("user","product");
     }
 
 }

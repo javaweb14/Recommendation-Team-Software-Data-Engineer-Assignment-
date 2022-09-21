@@ -1,5 +1,6 @@
 package com.hepsiburada.controller;
 
+import com.hepsiburada.common.util.StringOperationUtil;
 import com.hepsiburada.dto.BrowsingHistoryResponseDto;
 import com.hepsiburada.service.BestSellerProductsService;
 import org.apache.kafka.common.errors.ResourceNotFoundException;
@@ -20,6 +21,7 @@ public class BestSellerProductsController {
     @GetMapping("/bestSellerProducts")
     public ResponseEntity<BrowsingHistoryResponseDto> getBestSellerProducts(@RequestParam String userId)
     {
+        StringOperationUtil.checkStringEmptyOrNull(userId);
         BrowsingHistoryResponseDto browsingHistoryResponseDto = bestSellerProductsService.getBestSellerProducts(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("browsingHistory Response Dto not found for this user id :: " + userId));
         return ResponseEntity.ok().body(browsingHistoryResponseDto);

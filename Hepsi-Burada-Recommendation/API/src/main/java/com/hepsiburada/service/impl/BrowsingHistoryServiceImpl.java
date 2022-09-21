@@ -29,7 +29,7 @@ public class BrowsingHistoryServiceImpl implements BrowsingHistoryService {
     public Optional<BrowsingHistoryResponseDto> getLastTenProductsViewedByUserId(String userId) {
         List<String> browsingHistoryList = browsingHistoryRepository.
                 findByUserId(userId).stream()
-                .sorted(Comparator.comparing(o -> o.getProduceTime()))
+                .sorted(Comparator.comparing(BrowsingHistory::getProduceTime).reversed())
                 .limit(MAX_PRODUCT_SIZE)
                 .map(browsingHistory -> browsingHistory.getProductId())
                 .collect(Collectors.toList());
