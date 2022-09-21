@@ -17,8 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.hepsiburada.common.util.Constants.MINIMUM_PRODUCT_SIZE;
-import static com.hepsiburada.common.util.Constants.PERSONALIZED;
+import static com.hepsiburada.common.util.Constants.*;
 
 @Service
 public class BrowsingHistoryServiceImpl implements BrowsingHistoryService {
@@ -27,11 +26,11 @@ public class BrowsingHistoryServiceImpl implements BrowsingHistoryService {
     BrowsingHistoryRepository browsingHistoryRepository;
 
     @Override
-    public Optional<BrowsingHistoryResponseDto> getBrowsingHistoryResponseDto(String userId) {
+    public Optional<BrowsingHistoryResponseDto> getLastTenProductsViewedByUserId(String userId) {
         List<String> browsingHistoryList = browsingHistoryRepository.
                 findByUserId(userId).stream()
                 .sorted(Comparator.comparing(o -> o.getProduceTime()))
-                .limit(10)
+                .limit(MAX_PRODUCT_SIZE)
                 .map(browsingHistory -> browsingHistory.getProductId())
                 .collect(Collectors.toList());
 

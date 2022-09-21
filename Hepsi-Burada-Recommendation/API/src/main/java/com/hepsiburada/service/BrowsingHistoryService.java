@@ -8,7 +8,7 @@ import java.util.Optional;
 
 
 public interface BrowsingHistoryService {
-    Optional<BrowsingHistoryResponseDto> getBrowsingHistoryResponseDto(String userId);
+    Optional<BrowsingHistoryResponseDto> getLastTenProductsViewedByUserId(String userId);
 
     ResponseEntity<DeleteBrowsingHistoryRequestDto> deleteProductByUserId(String userId, String productId);
 }

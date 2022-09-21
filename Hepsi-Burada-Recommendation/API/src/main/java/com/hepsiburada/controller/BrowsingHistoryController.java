@@ -19,7 +19,7 @@ public class BrowsingHistoryController {
     @GetMapping("/browsingHistory")
     public ResponseEntity<BrowsingHistoryResponseDto> getBrowsingHistorByUserId(@RequestParam String userId)
             {
-        BrowsingHistoryResponseDto browsingHistoryResponseDto = browsingHistoryService.getBrowsingHistoryResponseDto(userId)
+        BrowsingHistoryResponseDto browsingHistoryResponseDto = browsingHistoryService.getLastTenProductsViewedByUserId(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("browsingHistory Response Dto not found for this user id :: " + userId));
         return ResponseEntity.ok().body(browsingHistoryResponseDto);
     }
