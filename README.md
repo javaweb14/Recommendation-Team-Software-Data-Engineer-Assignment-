@@ -28,3 +28,5 @@ after run etl.py you can run Stream-Reader-App ,  View-Producer-App and API proj
 when run API project request can be made via below link
 
 http://localhost:8087/swagger-ui.html#/browsing-history-controller
+
+![image](https://user-images.githubusercontent.com/35763530/191607687-f97e87c4-8705-4224-8e8e-9525e48109fc.png)
