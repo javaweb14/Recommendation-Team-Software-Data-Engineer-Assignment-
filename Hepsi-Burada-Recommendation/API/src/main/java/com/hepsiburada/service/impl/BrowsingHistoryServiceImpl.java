@@ -17,11 +17,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.hepsiburada.common.util.Constants.MINIMUM_PRODUCT_SIZE;
 import static com.hepsiburada.common.util.Constants.PERSONALIZED;
 
 @Service
 public class BrowsingHistoryServiceImpl implements BrowsingHistoryService {
-
 
     @Autowired
     BrowsingHistoryRepository browsingHistoryRepository;
@@ -35,7 +35,7 @@ public class BrowsingHistoryServiceImpl implements BrowsingHistoryService {
                 .map(browsingHistory -> browsingHistory.getProductId())
                 .collect(Collectors.toList());
 
-        if(browsingHistoryList.size() < 5) {
+        if(browsingHistoryList.size() < MINIMUM_PRODUCT_SIZE) {
            return Optional.of(BrowsingHistoryResponseDto.builder().userId(userId).products(Collections.emptyList()).type(PERSONALIZED).build());
         } else {
             return Optional.of(BrowsingHistoryResponseDto.builder().products(browsingHistoryList).userId(userId).type(PERSONALIZED).build());

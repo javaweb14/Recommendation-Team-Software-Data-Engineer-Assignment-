@@ -2,6 +2,7 @@ package com.hepsiburada.database.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "browsing_history")
@@ -52,5 +53,18 @@ public class BrowsingHistory {
 
     public void setProduceTime(Date produceTime) {
         this.produceTime = produceTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BrowsingHistory that = (BrowsingHistory) o;
+        return id == that.id && Objects.equals(userId, that.userId) && Objects.equals(productId, that.productId) && Objects.equals(produceTime, that.produceTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, productId, produceTime);
     }
 }
