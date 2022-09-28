@@ -14,4 +14,13 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="API" options="" />
+      <module name="Stream-Reader-App" options="" />
+      <module name="View-Producer-App" options="" />
+      <module name="common" options="" />
+      <module name="database" options="" />
+    </option>
+  </component>
 </project>

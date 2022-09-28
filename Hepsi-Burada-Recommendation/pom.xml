@@ -8,6 +8,8 @@
     <artifactId>Hepsi-Burada-Recommendation</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+
     <modules>
         <module>common</module>
         <module>View-Producer-App</module>

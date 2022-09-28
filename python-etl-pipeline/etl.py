@@ -24,7 +24,7 @@ def extract():
 def load(tbl,df):
     try:
         rows_imported = 0
-        engine = create_engine(f'postgresql://{uid}:{pwd}@{server}:5435/destination-db')
+        engine = create_engine(f'postgresql://{uid}:{pwd}@{server}:5435/postgres')
         print(f'importing rows {rows_imported} to {rows_imported + len(df)} for table {tbl}')
         # save df to postgres
         df.to_sql(f'{tbl}', engine, if_exists='replace', index=False)

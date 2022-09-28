@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaProducer {
 
-    @Value(value = "${productView.topic.name}")
+    @Value(value = "${productView.topic.name::product-view}")
     private String topicName;
 
     @Autowired

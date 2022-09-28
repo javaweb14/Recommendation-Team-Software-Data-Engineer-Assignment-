@@ -6,7 +6,7 @@ i used docker-compose.yml and i changed postgres port as 5435 because of port is
 
 1 - firstly you need to create destination-db database with below command
 
-CREATE DATABASE destination-db;
+CREATE DATABASE "destination-db";
 
 --you should run below commands 
 

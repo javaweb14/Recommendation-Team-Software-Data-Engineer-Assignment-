@@ -26,4 +26,64 @@
 
     </dependencies>
 
+
+
+    <build>
+        <resources>
+
+            <resource>
+
+                <directory>${basedir}/resource</directory>
+
+                <includes>
+                    <include>**/*.png</include>
+                    <include>*.properties</include>
+                </includes>
+
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+
+            </resource>
+
+            <resource>
+                <directory>${basedir}/config</directory>
+
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+
+            <resource>
+                <directory>.settings</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+
+
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.5.RELEASE</version>
+                <configuration>
+                    <addResources>true</addResources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
